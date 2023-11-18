@@ -1,0 +1,20 @@
+﻿
+
+@model IEnumerable<ZeroHunger.EF.CollectRequest>
+
+<h2>Collect Food Request History</h2>
+
+<table>
+    <tr>
+        <th>Food Request Id</th>
+        <th>Food Request Status</th>
+
+    </tr>
+    @foreach (var CollectFood in Model)
+    {
+        <tr>
+            <td>@CollectFood.RequestId</td>
+            <td>@CollectFood.Status</td>
+        </tr>
+    }
+</table>

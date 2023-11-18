@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ZeroHunger.EF.StoredFoodItem>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+
+        <a href="@Url.Action("Dashboard", "Restaurant")">
+
+            <button>Back To Restaurant Dashboard</button>
+        </a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollectRequest.Status)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpiryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectRequest.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.FoodItemId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.FoodItemId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.FoodItemId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

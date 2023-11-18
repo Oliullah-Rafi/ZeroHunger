@@ -20,5 +20,7 @@ namespace ZeroHunger.EF
         public int Quantity { get; set; }
         public System.DateTime ExpiryDate { get; set; }
         public string Description { get; set; }
+    
+        public virtual CollectRequest CollectRequest { get; set; }
     }
 }

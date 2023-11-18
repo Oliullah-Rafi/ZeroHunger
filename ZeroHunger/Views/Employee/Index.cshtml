@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ZeroHunger.EF.DeliveryConfirmation>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+
+        <a href="@Url.Action("Index", "User")">
+
+            <button>Logout</button>
+        </a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ConfirmationTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetailsComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollectRequest.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConfirmationTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailsComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectRequest.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ConfirmationId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ConfirmationId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ConfirmationId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

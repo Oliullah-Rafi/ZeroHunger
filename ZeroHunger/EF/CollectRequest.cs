@@ -14,6 +14,14 @@ namespace ZeroHunger.EF
     
     public partial class CollectRequest
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CollectRequest()
+        {
+            this.DeliveryConfirmations = new HashSet<DeliveryConfirmation>();
+            this.CollectRequestsFooditems = new HashSet<CollectRequestsFooditem>();
+            this.StoredFoodItems = new HashSet<StoredFoodItem>();
+        }
+    
         public int RequestId { get; set; }
         public int RestaurantUserId { get; set; }
         public System.DateTime MaxPreserveTime { get; set; }
@@ -22,5 +30,14 @@ namespace ZeroHunger.EF
         public Nullable<int> AssignedEmployeeId { get; set; }
         public Nullable<System.DateTime> CollectionTime { get; set; }
         public Nullable<System.DateTime> CompletionTime { get; set; }
+    
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryConfirmation> DeliveryConfirmations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CollectRequestsFooditem> CollectRequestsFooditems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StoredFoodItem> StoredFoodItems { get; set; }
     }
 }

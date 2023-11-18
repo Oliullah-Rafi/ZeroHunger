@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZeroHungerModelStoreContainer" CdmEntityContainer="ZeroHungerEntities">
+    <EntitySetMapping Name="CollectRequests">
+      <EntityTypeMapping TypeName="ZeroHungerModel.CollectRequest">
+        <MappingFragment StoreEntitySet="CollectRequests">
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="RestaurantUserId" ColumnName="RestaurantUserId" />
+          <ScalarProperty Name="MaxPreserveTime" ColumnName="MaxPreserveTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CollectionAddress" ColumnName="CollectionAddress" />
+          <ScalarProperty Name="AssignedEmployeeId" ColumnName="AssignedEmployeeId" />
+          <ScalarProperty Name="CollectionTime" ColumnName="CollectionTime" />
+          <ScalarProperty Name="CompletionTime" ColumnName="CompletionTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectRequestsFooditems">
+      <EntityTypeMapping TypeName="ZeroHungerModel.CollectRequestsFooditem">
+        <MappingFragment StoreEntitySet="CollectRequestsFooditems">
+          <ScalarProperty Name="CollectRequestsFoodItemId" ColumnName="CollectRequestsFoodItemId" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryConfirmations">
+      <EntityTypeMapping TypeName="ZeroHungerModel.DeliveryConfirmation">
+        <MappingFragment StoreEntitySet="DeliveryConfirmations">
+          <ScalarProperty Name="ConfirmationId" ColumnName="ConfirmationId" />
+          <ScalarProperty Name="ConfirmingEmployeeId" ColumnName="ConfirmingEmployeeId" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="ConfirmationTime" ColumnName="ConfirmationTime" />
+          <ScalarProperty Name="DetailsComments" ColumnName="DetailsComments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoredFoodItems">
+      <EntityTypeMapping TypeName="ZeroHungerModel.StoredFoodItem">
+        <MappingFragment StoreEntitySet="StoredFoodItems">
+          <ScalarProperty Name="FoodItemId" ColumnName="FoodItemId" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ZeroHungerModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactInfo" ColumnName="ContactInfo" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

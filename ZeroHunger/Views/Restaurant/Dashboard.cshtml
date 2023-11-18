@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+    <style>
+        /* Add your CSS styles here */
+        table.table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            table.table th, table.table td {
+                border: 1px solid #000;
+                padding: 8px;
+                text-align: center;
+            }
+
+            table.table th {
+                background-color: #f2f2f2;
+            }
+
+        .quantity-input {
+            width: 50px;
+        }
+
+        .add-to-cart-link {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .add-to-cart-link:hover {
+                background-color: #0056b3;
+            }
+    </style>
+
+
+
+
+</head>
+<body>
+
+
+    @model IEnumerable<ZeroHunger.EF.CollectRequestsFooditem>
+
+    <p>
+        @Html.ActionLink("User", "Logout")
+
+        @Html.ActionLink("ViewFoodItems", "ViewFoodItems")
+
+        @*  @Html.ActionLink("FoodInfo", "Restaurant")*@
+
+        <a href="@Url.Action("Create", "Restaurant")">
+
+            <button>Create Restaurant</button>
+        </a>
+
+        <a href="@Url.Action("Create", "CollectRequestFood")">
+
+            <button>Collect Request Food Items</button>
+        </a>
+
+        <a href="@Url.Action("Create", "StoredFoodItem")">
+
+            <button>Requested Food Items Add</button>
+        </a>
+
+
+        
+
+
+    </p>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+
+
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+
+
+                @using (Html.BeginForm("CollectedFood", "Restaurant", FormMethod.Post))
+                {
+                    var RestaurantCookie = Request.Cookies["RestaurantInfo"];
+
+                    string RequestId = RestaurantCookie?["UserId"];
+
+
+
+                    @Html.Hidden("CollectRequestsFoodItemId", item.CollectRequestsFoodItemId)
+                    @Html.Hidden("RequestId", item.RequestId)
+                    @Html.Hidden("ItemName", item.ItemName)
+                    @Html.Hidden("ExpiryDate", item.ExpiryDate)
+                    @Html.Hidden("Description", item.Description)
+
+                    <td>
+                        <input type="number" class="quantity-input" name="Quantity" min="1" value="1">
+                        <input type="submit" class="add-to-cart-link" value="CollectedFood">
+                    </td>
+
+
+                }
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
+
+<br />
+@*
+
+<h2>Collect Food Request History</h2>
+
+<table>
+    <tr>
+        <th>Food Request Id</th>
+        <th>Food Request Status</th>
+
+    </tr>
+    @foreach (var CollectFood in Model)
+    {
+        <tr>
+            <td>@CollectFood.RequestId</td>
+            <td>@CollectFood.Status</td>
+        </tr>
+    }
+</table>*@
+
+
+
+

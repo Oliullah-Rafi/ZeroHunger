@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ZeroHunger.EF.CollectRequest>
+
+@{
+    ViewBag.title = "Details";
+}
+<a href="@Url.Action("Index", "User")">
+
+    <button>Logout</button>
+</a>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+       
+            <th>
+             
+                @Html.DisplayNameFor(model => model.AssignedEmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollectionTime)
+             
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompletionTime)
+            </th>
+           
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+       
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedEmployeeId)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletionTime)
+
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RequestId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RequestId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RequestId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿
+@Html.ActionLink("Dashboard", "Dashboard")
+
+@if (ViewBag.FoodViewDetails != null)
+{
+    <h2>Collect Foods</h2>
+
+    <form method="post" action="@Url.Action("PlaceFoodOrder", "Restaurant")">
+
+        @foreach (var item in ViewBag.FoodViewDetails)
+        {
+            <input type="hidden" name="CollectRequestsFoodItemId" value="@item.CollectRequestsFoodItemId" />
+            <input type="hidden" name="RequestId" value="@item.RequestId" />
+            <input type="hidden" name="ItemName" value="@item.ItemName" />
+            <input type="hidden" name="Quantity" value="@item.Quantity" />
+            <input type="hidden" name="ExpiryDate" value="@item.ExpiryDate" />
+            <input type="hidden" name="Description" value="@item.Description" />
+
+        }
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Collect Requests Food Item ID</th>
+                    <th>Request Id </th>
+                    <th>ItemName</th>
+                    <th>Quantity</th>
+                  
+                    <th>ExpiryDate</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                @foreach (var item in ViewBag.FoodViewDetails)
+                {
+                <tr>
+
+                    <td>@item.CollectRequestsFoodItemId</td>
+                    <td>@item.RequestId</td>
+                    <td>@item.ItemName</td>
+                 
+                    <td>@item.Quantity</td>
+                    <td>@item.ExpiryDate</td>
+                    <td>@item.Description</td>
+                
+
+                </tr>
+     
+                }
+         
+            </tbody>
+
+
+
+
+        </table>
+
+
+        <input type="submit" value="Food Order Confirm" />
+    </form>
+
+
+}
+
+else
+{
+    <p>Your Food Items are empty.</p>
+}
+
