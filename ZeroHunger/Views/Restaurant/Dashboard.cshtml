@@ -35,7 +35,7 @@
         }
 
             .add-to-cart-link:hover {
-                background-color: #0056b3;
+                background-color: forestgreen;
             }
     </style>
 
@@ -49,29 +49,33 @@
     @model IEnumerable<ZeroHunger.EF.CollectRequestsFooditem>
 
     <p>
-        @Html.ActionLink("User", "Logout")
+        @*  @Html.ActionLink("User", "Index")*@
+        <a href="@Url.Action("Index", "User")">
 
+            <button>Logout</button>
+        </a>
         @Html.ActionLink("ViewFoodItems", "ViewFoodItems")
 
-        @*  @Html.ActionLink("FoodInfo", "Restaurant")*@
+
+
 
         <a href="@Url.Action("Create", "Restaurant")">
 
-            <button>Create Restaurant</button>
+            <button>Create Restaurant Food Request</button>
         </a>
 
         <a href="@Url.Action("Create", "CollectRequestFood")">
 
-            <button>Collect Request Food Items</button>
+            <button>Requested Food Items</button>
         </a>
 
         <a href="@Url.Action("Create", "StoredFoodItem")">
 
-            <button>Requested Food Items Add</button>
+            <button>Stored Food Items Remaining</button>
         </a>
 
 
-        
+
 
 
     </p>

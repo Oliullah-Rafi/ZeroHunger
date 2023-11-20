@@ -44,7 +44,7 @@ namespace ZeroHunger.Controllers
 
                 db.CollectRequestsFooditems.Add(data2);
                 db.SaveChanges();
-                return RedirectToAction("Details");
+                return RedirectToAction("Create");
             }
 
             return View(collectRequestsFooditem);
